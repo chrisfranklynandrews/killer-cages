@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: #333;
+}
+
+/* Global utility classes */
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
+/* Override PrimeVue default button sizes for number buttons */
+.p-button.number-btn {
+  width: 50px !important;
+  height: 50px !important;
+  min-width: 50px !important;
+  padding: 0 !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  font-size: 18px !important;
+  transition: all 0.3s ease !important;
+}
+
+.p-button.number-btn:hover {
+  transform: scale(1.05) !important;
+}
+
+/* Success state (included numbers) */
+.p-button.number-btn.p-button-success {
+  background-color: #28a745 !important;
+  border-color: #28a745 !important;
+}
+
+.p-button.number-btn.p-button-success:hover {
+  background-color: #218838 !important;
+  border-color: #1e7e34 !important;
+}
+
+/* Danger state (excluded numbers) */
+.p-button.number-btn.p-button-danger {
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+}
+
+.p-button.number-btn.p-button-danger:hover {
+  background-color: #c82333 !important;
+  border-color: #bd2130 !important;
+}
+
+/* InputNumber styling for mobile */
+@media (max-width: 768px) {
+  .p-button.number-btn {
+    width: 60px !important;
+    height: 60px !important;
+    min-width: 60px !important;
+    font-size: 20px !important;
+  }
+  
+  .p-inputnumber input {
+    font-size: 18px !important;
+    padding: 15px !important;
+    min-height: 50px !important;
+  }
+}
+
+/* Custom panel styling */
+.p-panel .p-panel-content {
+  padding: 1.5rem !important;
+}
+
+.p-panel .p-panel-header {
+  background: #f8f9fa !important;
+  border-bottom: 1px solid #dee2e6 !important;
+  padding: 1rem 1.5rem !important;
+  font-weight: 600 !important;
+  color: #495057 !important;
+}
+
+/* Card styling */
+.p-card .p-card-content {
+  padding: 0 !important;
+}
+
+.combination-card .p-card-content {
+  padding: 1rem !important;
+}
+
+/* Message styling */
+.p-message {
+  margin: 0 !important;
+}
+
+/* Select dropdown styling */
+.p-select {
+  min-width: 120px !important;
+}
+
+/* Input button styling for +/- controls */
+.p-button.p-button-sm {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
