@@ -424,7 +424,10 @@ onMounted(() => {
 
 .input-with-buttons .p-inputnumber {
   flex: 1;
-  max-width: 100px;
+}
+
+.p-inputnumber input {
+  width: 100%;
 }
 
 .number-grid {
@@ -553,10 +556,6 @@ onMounted(() => {
   .number-btn {
     width: 60px;
     height: 60px;
-  }
-
-  .input-with-buttons .p-inputnumber {
-    max-width: 120px;
   }
 }
 </style>
