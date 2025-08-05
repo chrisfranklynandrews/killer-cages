@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/inter": "^5.2.6",
     "@primevue/themes": "^4.3.7",
     "primeicons": "^7.0.0",
     "primevue": "^4.3.7",

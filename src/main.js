@@ -6,6 +6,11 @@ import PrimeVue from 'primevue/config'
 import Aura from '@primevue/themes/aura'
 import 'primeicons/primeicons.css'
 
+// Import Inter font (standard CSS files)
+import '@fontsource/inter/400.css'
+import '@fontsource/inter/500.css'
+import '@fontsource/inter/600.css'
+
 // PrimeVue components
 import Button from 'primevue/button'
 import InputNumber from 'primevue/inputnumber'
@@ -23,7 +28,11 @@ app.use(PrimeVue, {
     theme: {
         preset: Aura,
         options: {
-            darkModeSelector: '.dark-mode'
+            darkModeSelector: '[data-theme="dark"]',
+            cssLayer: {
+                name: 'primevue',
+                order: 'tailwind-base, primevue, tailwind-utilities'
+            }
         }
     }
 })

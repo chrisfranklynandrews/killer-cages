@@ -3,7 +3,7 @@
     <header class="app-header">
       <div class="header-content">
         <div class="title-section">
-          <h1>Killer Sudoku Helper</h1>
+          <h1>Killer Cages</h1>
           <p>Find possible number combinations for your killer sudoku cages</p>
         </div>
         <ThemeSwitcher />
