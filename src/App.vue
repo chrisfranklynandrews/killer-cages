@@ -1,9 +1,12 @@
 <template>
   <div class="app">
     <header class="app-header">
-      <div class="container">
-        <h1>Killer Sudoku Helper</h1>
-        <p>Find possible number combinations for your killer sudoku cages</p>
+      <div class="header-content">
+        <div class="title-section">
+          <h1>Killer Sudoku Helper</h1>
+          <p>Find possible number combinations for your killer sudoku cages</p>
+        </div>
+        <ThemeSwitcher />
       </div>
     </header>
 
@@ -28,19 +31,19 @@
               <div class="control-group">
                 <label for="cage-sum">Cage Sum:</label>
                 <div class="input-with-buttons">
-                  <Button 
-                    icon="pi pi-minus" 
-                    @click="decrementSum" 
-                    :disabled="cageSum <= 1"
-                    severity="secondary"
-                    size="small"
-                  />
                   <InputNumber 
                     id="cage-sum"
                     v-model="cageSum" 
                     :min="1" 
                     :max="maxSum"
                     @input="findCombinations"
+                  />
+                  <Button 
+                    icon="pi pi-minus" 
+                    @click="decrementSum" 
+                    :disabled="cageSum <= 1"
+                    severity="primary"
+                    size="small"
                   />
                   <Button 
                     icon="pi pi-plus" 
@@ -55,19 +58,19 @@
               <div class="control-group">
                 <label for="cage-size">Cage Size:</label>
                 <div class="input-with-buttons">
-                  <Button 
-                    icon="pi pi-minus" 
-                    @click="decrementCageSize" 
-                    :disabled="cageSize <= 1"
-                    severity="secondary"
-                    size="small"
-                  />
                   <InputNumber 
                     id="cage-size"
                     v-model="cageSize" 
                     :min="1" 
                     :max="maxNumbers"
                     @input="findCombinations"
+                  />
+                  <Button 
+                    icon="pi pi-minus" 
+                    @click="decrementCageSize" 
+                    :disabled="cageSize <= 1"
+                    severity="secondary"
+                    size="small"
                   />
                   <Button 
                     icon="pi pi-plus" 
@@ -130,7 +133,6 @@
                   <template #content>
                     <div class="combination-content">
                       <div class="numbers">{{ combo.numbers.join(' + ') }}</div>
-                      <div class="sum">Sum: {{ combo.sum }}</div>
                     </div>
                   </template>
                 </Card>
@@ -153,6 +155,7 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
+import ThemeSwitcher from './components/ThemeSwitcher.vue'
 
 // Reactive data
 const gridSize = ref(9)
@@ -353,22 +356,34 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.app-header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 2rem 0;
-  text-align: center;
+.app {
+  min-height: 100vh;
 }
 
-.app-header h1 {
+.app-header {
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-section h1 {
   font-size: 2.5em;
   margin-bottom: 0.5rem;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  color: var(--text-color)
 }
 
-.app-header p {
+.title-section p {
   font-size: 1.2em;
-  opacity: 0.9;
+  color: var(--text-color)
 }
 
 .container {
@@ -425,6 +440,46 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+/* Ensure PrimeVue severity classes work on number buttons */
+.number-btn.p-button-success {
+  background-color: #28a745 !important;
+  border-color: #28a745 !important;
+  color: #ffffff !important;
+}
+
+.number-btn.p-button-success:hover {
+  background-color: #218838 !important;
+  border-color: #1e7e34 !important;
+  transform: scale(1.05);
+}
+
+.number-btn.p-button-danger {
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+  color: #ffffff !important;
+}
+
+.number-btn.p-button-danger:hover {
+  background-color: #c82333 !important;
+  border-color: #bd2130 !important;
+  transform: scale(1.05);
+}
+
+.number-btn.p-button-secondary {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: var(--button-text-color) !important;
+}
+
+.number-btn.p-button-secondary:hover {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  opacity: 0.9;
+  transform: scale(1.05);
 }
 
 .combinations-list {
@@ -472,7 +527,13 @@ onMounted(() => {
     padding: 1rem;
   }
   
-  .app-header h1 {
+  .header-content {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .title-section h1 {
     font-size: 2em;
   }
   

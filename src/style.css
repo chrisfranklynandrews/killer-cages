@@ -1,122 +1,220 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import "./themes.css";
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.card {
+  padding: 2em;
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
-  color: #333;
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
 }
 
-/* Global utility classes */
-.mb-3 {
-  margin-bottom: 0.75rem;
+/* PrimeReact theme overrides */
+.p-panel {
+  background-color: var(--background-color-card) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-color) !important;
 }
 
-.mb-4 {
-  margin-bottom: 1rem;
+.p-panel .p-panel-header {
+  background-color: var(--surface-color) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  color: var(--text-color) !important;
 }
 
-.mt-3 {
-  margin-top: 0.75rem;
+.p-panel .p-panel-content {
+  background-color: var(--surface-color) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  color: var(--text-color) !important;
 }
 
-/* Override PrimeVue default button sizes for number buttons */
-.p-button.number-btn {
-  width: 50px !important;
-  height: 50px !important;
-  min-width: 50px !important;
-  padding: 0 !important;
-  border-radius: 8px !important;
-  font-weight: 600 !important;
-  font-size: 18px !important;
-  transition: all 0.3s ease !important;
+.p-card {
+  background-color: var(--background-color-card) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-color) !important;
 }
 
-.p-button.number-btn:hover {
-  transform: scale(1.05) !important;
+.p-card .p-card-header {
+  background-color: var(--surface-color) !important;
+  color: var(--text-color) !important;
 }
 
-/* Success state (included numbers) */
-.p-button.number-btn.p-button-success {
-  background-color: #28a745 !important;
-  border-color: #28a745 !important;
+.p-card .p-card-body {
+  background-color: var(--background-color-card) !important;
+  color: var(--text-color) !important;
 }
 
-.p-button.number-btn.p-button-success:hover {
-  background-color: #218838 !important;
-  border-color: #1e7e34 !important;
+.p-card .p-card-title {
+  color: var(--text-color) !important;
 }
 
-/* Danger state (excluded numbers) */
-.p-button.number-btn.p-button-danger {
+.p-card .p-card-subtitle {
+  color: var(--secondary-color) !important;
+}
+
+.p-inputtext {
+  background-color: var(--background-color) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-color) !important;
+}
+
+.p-inputtext:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 0.2rem rgba(var(--primary-color), 0.2) !important;
+}
+
+.p-inputtextarea {
+  background-color: var(--background-color) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-color) !important;
+}
+
+.p-inputtextarea:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 0.2rem rgba(var(--primary-color), 0.2) !important;
+}
+
+.p-dropdown {
+  background-color: var(--background-color) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-color) !important;
+}
+
+.p-dropdown:not(.p-disabled):hover {
+  border-color: var(--primary-color) !important;
+}
+
+.p-dropdown-panel {
+  background-color: var(--background-color-card) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+.p-dropdown-item {
+  background-color: var(--background-color-card) !important;
+  color: var(--text-color) !important;
+}
+
+.p-dropdown-item:hover {
+  background-color: var(--hover-color) !important;
+  color: var(--text-color) !important;
+}
+
+.p-dropdown-item.p-highlight {
+  background-color: var(--primary-color) !important;
+  color: var(--button-text-color) !important;
+}
+
+.p-button {
+  background-color: var(--primary-color) !important;
+  border: 1px solid var(--primary-color) !important;
+  color: var(--button-text-color) !important;
+}
+
+.p-button:hover {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  opacity: 0.9;
+}
+
+.p-button.p-button-text {
+  background-color: transparent !important;
+  border: none !important;
+  color: var(--primary-color) !important;
+}
+
+.p-button.p-button-text:hover {
+  background-color: var(--hover-color) !important;
+  color: var(--primary-color) !important;
+}
+
+.p-button.p-button-danger {
   background-color: #dc3545 !important;
   border-color: #dc3545 !important;
 }
 
-.p-button.number-btn.p-button-danger:hover {
+.p-button.p-button-danger.p-button-text {
+  background-color: transparent !important;
+  border: none !important;
+  color: #dc3545 !important;
+}
+
+.p-button.p-button-danger.p-button-text:hover {
+  background-color: var(--hover-color) !important;
+  color: #dc3545 !important;
+}
+
+.p-button.p-button-info {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: var(--button-text-color) !important;
+}
+
+.p-button.p-button-success {
+  background-color: #28a745 !important;
+  border-color: #28a745 !important;
+  color: #ffffff !important;
+}
+
+.p-button.p-button-success:hover {
+  background-color: #218838 !important;
+  border-color: #1e7e34 !important;
+  color: #ffffff !important;
+}
+
+/* Number filter buttons specific styling */
+.number-btn.p-button-success {
+  background-color: #28a745 !important;
+  border-color: #28a745 !important;
+  color: #ffffff !important;
+}
+
+.number-btn.p-button-success:hover {
+  background-color: #218838 !important;
+  border-color: #1e7e34 !important;
+  color: #ffffff !important;
+}
+
+.number-btn.p-button-danger {
+  background-color: #dc3545 !important;
+  border-color: #dc3545 !important;
+  color: #ffffff !important;
+}
+
+.number-btn.p-button-danger:hover {
   background-color: #c82333 !important;
   border-color: #bd2130 !important;
+  color: #ffffff !important;
 }
 
-/* InputNumber styling for mobile */
-@media (max-width: 768px) {
-  .p-button.number-btn {
-    width: 60px !important;
-    height: 60px !important;
-    min-width: 60px !important;
-    font-size: 20px !important;
-  }
-  
-  .p-inputnumber input {
-    font-size: 18px !important;
-    padding: 15px !important;
-    min-height: 50px !important;
-  }
+.p-confirmdialog {
+  background-color: var(--background-color-card) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-color) !important;
 }
 
-/* Custom panel styling */
-.p-panel .p-panel-content {
-  padding: 1.5rem !important;
+.p-confirmdialog .p-dialog-header {
+  background-color: var(--surface-color) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  color: var(--text-color) !important;
 }
 
-.p-panel .p-panel-header {
-  background: #f8f9fa !important;
-  border-bottom: 1px solid #dee2e6 !important;
-  padding: 1rem 1.5rem !important;
-  font-weight: 600 !important;
-  color: #495057 !important;
+.p-confirmdialog .p-dialog-content {
+  background-color: var(--background-color-card) !important;
+  color: var(--text-color) !important;
 }
 
-/* Card styling */
-.p-card .p-card-content {
-  padding: 0 !important;
-}
-
-.combination-card .p-card-content {
-  padding: 1rem !important;
-}
-
-/* Message styling */
-.p-message {
-  margin: 0 !important;
-}
-
-/* Select dropdown styling */
-.p-select {
-  min-width: 120px !important;
-}
-
-/* Input button styling for +/- controls */
-.p-button.p-button-sm {
-  width: 40px !important;
-  height: 40px !important;
-  min-width: 40px !important;
-  padding: 0 !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+.p-toast .p-toast-message {
+  background-color: var(--background-color-card) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--text-color) !important;
 }
