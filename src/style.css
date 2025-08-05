@@ -41,6 +41,7 @@ body {
   background-color: var(--surface-color) !important;
   border-bottom: 1px solid var(--border-color) !important;
   color: var(--text-color) !important;
+  margin-top: 12px !important;
 }
 
 .p-card {
