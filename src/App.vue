@@ -2,11 +2,11 @@
   <div class="app">
     <header class="app-header">
       <div class="header-content">
+        <ThemeSwitcher />
         <div class="title-section">
           <h1>Killer Cages</h1>
-          <p>Find possible number combinations for your killer sudoku cages</p>
+          <p>Find possible number combinations for your killer sudoku or kakuro cages</p>
         </div>
-        <ThemeSwitcher />
       </div>
     </header>
 
@@ -371,8 +371,13 @@ onMounted(() => {
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  gap: 1rem;
+}
+
+.title-section {
+  text-align: center;
 }
 
 .title-section h1 {
@@ -531,9 +536,7 @@ onMounted(() => {
   }
   
   .header-content {
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
+    padding: 0 1rem;
   }
   
   .title-section h1 {
