@@ -1,6 +1,8 @@
-import { ref, watch, onMounted } from 'vue'
+import { ref, watch } from 'vue'
 
-const currentTheme = ref('light')
+// Initialize theme from localStorage immediately
+const savedTheme = localStorage.getItem('theme') || 'light'
+const currentTheme = ref(savedTheme)
 
 export function useTheme() {
   const toggleTheme = (newTheme) => {
@@ -12,14 +14,6 @@ export function useTheme() {
     document.documentElement.setAttribute('data-theme', newTheme)
     localStorage.setItem('theme', newTheme)
   }, { immediate: true })
-
-  // Initialize theme from localStorage on first load
-  onMounted(() => {
-    const savedTheme = localStorage.getItem('theme')
-    if (savedTheme) {
-      currentTheme.value = savedTheme
-    }
-  })
 
   return {
     theme: currentTheme,
