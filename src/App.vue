@@ -149,12 +149,16 @@
       </div>
     </footer>
 
+    <!-- PWA Install/Update Prompts -->
+    <PWAPrompt />
+
   </div>
 </template>
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import ThemeSwitcher from './components/ThemeSwitcher.vue'
+import PWAPrompt from './components/PWAPrompt.vue'
 import { useFormPersistence } from './composables/useFormPersistence.js'
 
 // Form persistence composable
