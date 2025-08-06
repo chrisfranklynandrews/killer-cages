@@ -191,7 +191,7 @@ const skipTutorial = () => {
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  background: var(--primary-color);
   transition: width 0.3s ease;
 }
 
@@ -214,11 +214,11 @@ const skipTutorial = () => {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--primary-color);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--button-text-color);
   font-size: 1.5rem;
 }
 
@@ -233,7 +233,7 @@ const skipTutorial = () => {
   background-color: var(--surface-100);
   padding: 1rem;
   border-radius: 8px;
-  border-left: 4px solid #667eea;
+  border-left: 4px solid var(--primary-color);
   text-align: left;
   font-style: italic;
   color: var(--text-color-secondary);
@@ -289,5 +289,21 @@ const skipTutorial = () => {
     flex-wrap: wrap;
     gap: 0.5rem;
   }
+}
+
+/* High contrast theme specific improvements */
+:root[data-theme="high-contrast"] .step-example {
+  background-color: var(--surface-100);
+  border: 2px solid var(--border-color);
+  color: var(--text-color);
+}
+
+:root[data-theme="high-contrast"] .demo-section {
+  background-color: var(--surface-100);
+  border: 2px solid var(--border-color);
+}
+
+:root[data-theme="high-contrast"] .step-icon {
+  border: 2px solid var(--border-color);
 }
 </style>

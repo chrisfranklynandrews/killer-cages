@@ -243,13 +243,13 @@ const startTutorial = () => {
   background-color: var(--surface-100);
   padding: 1.5rem;
   border-radius: 8px;
-  border-left: 4px solid #667eea;
+  border-left: 4px solid var(--primary-color);
   margin: 1.5rem 0;
 }
 
 .example-box h4 {
   margin-top: 0;
-  color: #667eea;
+  color: var(--primary-color);
 }
 
 .filter-demo {
@@ -337,7 +337,7 @@ const startTutorial = () => {
 }
 
 .app-info a {
-  color: #667eea;
+  color: var(--primary-color);
   text-decoration: none;
 }
 
@@ -372,5 +372,30 @@ const startTutorial = () => {
     height: 35px;
     font-size: 1rem;
   }
+}
+
+/* High contrast theme specific improvements */
+:root[data-theme="high-contrast"] .example-box {
+  background-color: var(--surface-100);
+  border: 2px solid var(--border-color);
+}
+
+:root[data-theme="high-contrast"] .filter-demo {
+  background-color: var(--surface-100);
+  border: 2px solid var(--border-color);
+}
+
+:root[data-theme="high-contrast"] .combo-item {
+  background-color: var(--surface-100);
+  border: 2px solid var(--border-color);
+}
+
+:root[data-theme="high-contrast"] .app-info {
+  background-color: var(--surface-100);
+  border: 2px solid var(--border-color);
+}
+
+:root[data-theme="high-contrast"] .demo-number {
+  border-width: 3px;
 }
 </style>

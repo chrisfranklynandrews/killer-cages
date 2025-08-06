@@ -18,10 +18,6 @@ export default defineConfig({
       }
     }
   },
-  // Fix PrimeIcons resolution
-  optimizeDeps: {
-    include: ['primeicons']
-  },
   // PWA-specific settings
   server: {
     // Enable HTTPS for PWA testing (optional)

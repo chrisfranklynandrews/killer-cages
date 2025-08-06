@@ -4,12 +4,14 @@ import App from './App.vue'
 // PrimeVue imports
 import PrimeVue from 'primevue/config'
 import Aura from '@primevue/themes/aura'
-import 'primeicons/primeicons.css'
 
 // Import Inter font (standard CSS files)
 import '@fontsource/inter/400.css'
 import '@fontsource/inter/500.css'
 import '@fontsource/inter/600.css'
+
+// PrimeIcons
+import 'primeicons/primeicons.css'
 
 // PrimeVue components
 import Button from 'primevue/button'
@@ -19,6 +21,9 @@ import Card from 'primevue/card'
 import Panel from 'primevue/panel'
 import Chip from 'primevue/chip'
 import Message from 'primevue/message'
+import Dialog from 'primevue/dialog'
+import TabView from 'primevue/tabview'
+import TabPanel from 'primevue/tabpanel'
 
 import './style.css'
 
@@ -45,5 +50,8 @@ app.component('Card', Card)
 app.component('Panel', Panel)
 app.component('Chip', Chip)
 app.component('Message', Message)
+app.component('Dialog', Dialog)
+app.component('TabView', TabView)
+app.component('TabPanel', TabPanel)
 
 app.mount('#app')
