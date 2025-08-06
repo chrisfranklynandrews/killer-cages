@@ -136,7 +136,7 @@
             </div>
 
             <div v-else-if="!hasSearched" class="empty-state">
-              <p>Configure your cage and click "Find Combinations" to see results.</p>
+              <p>Configure your cage to see combinations.</p>
             </div>
           </Panel>
         </template>
@@ -148,13 +148,17 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import ThemeSwitcher from './components/ThemeSwitcher.vue'
+import { useFormPersistence } from './composables/useFormPersistence.js'
 
-// Reactive data
-const gridSize = ref(9)
-const cageSum = ref(15)
-const cageSize = ref(3)
-const includedNumbers = ref(new Set())
-const excludedNumbers = ref(new Set())
+// Form persistence composable
+const { loadFromLocalStorage, loadSetFromLocalStorage, setupPersistence } = useFormPersistence()
+
+// Reactive data with persistence
+const gridSize = ref(loadFromLocalStorage('killerCages-gridSize', 9))
+const cageSum = ref(loadFromLocalStorage('killerCages-cageSum', 15))
+const cageSize = ref(loadFromLocalStorage('killerCages-cageSize', 3))
+const includedNumbers = ref(loadSetFromLocalStorage('killerCages-includedNumbers'))
+const excludedNumbers = ref(loadSetFromLocalStorage('killerCages-excludedNumbers'))
 const combinations = ref([])
 const error = ref('')
 const hasSearched = ref(false)
@@ -340,6 +344,13 @@ const findCombinations = () => {
     combinations.value = []
   }
 }
+
+// Setup form persistence
+setupPersistence(gridSize, 'killerCages-gridSize')
+setupPersistence(cageSum, 'killerCages-cageSum')
+setupPersistence(cageSize, 'killerCages-cageSize')
+setupPersistence(includedNumbers, 'killerCages-includedNumbers', { isSet: true })
+setupPersistence(excludedNumbers, 'killerCages-excludedNumbers', { isSet: true })
 
 // Initialize on mount
 onMounted(() => {
