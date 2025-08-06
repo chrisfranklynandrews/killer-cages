@@ -2,7 +2,18 @@
   <div class="app">
     <header class="app-header">
       <div class="header-content">
-        <ThemeSwitcher />
+        <div class="header-top">
+          <ThemeSwitcher />
+          <Button 
+            icon="pi pi-question-circle" 
+            @click="showHelp"
+            severity="secondary"
+            text
+            rounded
+            aria-label="Help"
+            class="help-button"
+          />
+        </div>
         <div class="title-section">
           <h1>Killer Cages</h1>
           <p>Find possible number combinations for your killer sudoku or kakuro cages</p>
@@ -152,6 +163,19 @@
     <!-- PWA Install/Update Prompts -->
     <PWAPrompt />
 
+    <!-- Help System -->
+    <HelpTutorial 
+      :visible="showTutorial" 
+      @close="showTutorial = false"
+      @finish="completeTutorial"
+    />
+    
+    <HelpDialog 
+      :visible="showHelpDialog" 
+      @close="showHelpDialog = false"
+      @start-tutorial="startTutorial"
+    />
+
   </div>
 </template>
 
@@ -159,6 +183,8 @@
 import { ref, computed, onMounted } from 'vue'
 import ThemeSwitcher from './components/ThemeSwitcher.vue'
 import PWAPrompt from './components/PWAPrompt.vue'
+import HelpTutorial from './components/HelpTutorial.vue'
+import HelpDialog from './components/HelpDialog.vue'
 import { useFormPersistence } from './composables/useFormPersistence.js'
 
 // Form persistence composable
@@ -173,6 +199,10 @@ const excludedNumbers = ref(loadSetFromLocalStorage('killerCages-excludedNumbers
 const combinations = ref([])
 const error = ref('')
 const hasSearched = ref(false)
+
+// Help system state
+const showTutorial = ref(false)
+const showHelpDialog = ref(false)
 
 // Computed properties
 const gridSizeOptions = [
@@ -258,6 +288,32 @@ const clearFilters = () => {
   includedNumbers.value.clear()
   excludedNumbers.value.clear()
   findCombinations()
+}
+
+// Help system methods
+const showHelp = () => {
+  showHelpDialog.value = true
+}
+
+const startTutorial = () => {
+  showHelpDialog.value = false
+  showTutorial.value = true
+}
+
+const completeTutorial = () => {
+  showTutorial.value = false
+  // Tutorial completion is handled in the component
+}
+
+// Check if user should see tutorial on first visit
+const checkFirstTimeUser = () => {
+  const tutorialCompleted = localStorage.getItem('killer-cages-tutorial-completed')
+  if (!tutorialCompleted) {
+    // Show tutorial after a short delay for better UX
+    setTimeout(() => {
+      showTutorial.value = true
+    }, 1000)
+  }
 }
 
 const findCombinations = () => {
@@ -366,6 +422,7 @@ setupPersistence(excludedNumbers, 'killerCages-excludedNumbers', { isSet: true }
 // Initialize on mount
 onMounted(() => {
   findCombinations()
+  checkFirstTimeUser()
 })
 </script>
 
@@ -404,6 +461,20 @@ onMounted(() => {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+.help-button {
+  background: var(--surface-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
 }
 
 .title-section {

@@ -13,10 +13,14 @@ export default defineConfig({
         // Ensure consistent chunk names for better caching
         manualChunks: {
           vendor: ['vue'],
-          primevue: ['primevue', '@primevue/themes', 'primeicons']
+          primevue: ['primevue', '@primevue/themes']
         }
       }
     }
+  },
+  // Fix PrimeIcons resolution
+  optimizeDeps: {
+    include: ['primeicons']
   },
   // PWA-specific settings
   server: {
