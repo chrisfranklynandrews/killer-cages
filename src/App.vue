@@ -54,7 +54,6 @@
                   />
                 </div>
               </div>
-
               <div class="control-group">
                 <label for="cage-size">Cage Size:</label>
                 <div class="input-with-buttons">
@@ -142,6 +141,14 @@
         </template>
       </Card>
     </main>
+
+    <footer class="app-footer">
+      <div class="footer-content">
+        <p>Enjoying this app? Please see what else I'm doing at <a href="https://chrisfranklyn.app">chrisfranklyn.app</a></p>
+        <p>&copy; 2023 Chris Franklyn. All rights reserved.</p>
+      </div>
+    </footer>
+
   </div>
 </template>
 
@@ -363,6 +370,22 @@ onMounted(() => {
   min-height: 100vh;
 }
 
+.app-footer {
+  border-top: 1px solid var(--border-color);
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
 .app-header {
   border-bottom: 1px solid var(--border-color);
   padding: 1rem 0;
@@ -501,6 +524,8 @@ onMounted(() => {
 
 .combination-card {
   border-left: 4px solid #667eea;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .combination-content .numbers {
