@@ -81,14 +81,6 @@
                   />
                 </div>
               </div>
-
-              <div class="control-group">
-                <Button 
-                  label="Find Combinations" 
-                  @click="findCombinations"
-                  icon="pi pi-search"
-                />
-              </div>
             </div>
           </Panel>
 
