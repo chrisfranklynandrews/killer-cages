@@ -42,7 +42,7 @@
               <li>Fill the grid so each row, column, and region contains all numbers (1-4 for 4x4, 1-6 for 6x6, 1-9 for 9x9)</li>
               <li>Numbers in each cage (outlined area) must add up to the given sum</li>
               <li>No number can repeat within a cage</li>
-              <li>Use logic and math to find the solution</li>
+              <li>Use logic and maths to find the solution</li>
             </ul>
 
             <h4>Cage Types:</h4>

@@ -102,7 +102,7 @@ const tutorialSteps = [
   {
     title: "What is a Killer Sudoku?",
     icon: "pi pi-table",
-    description: "Killer Sudoku combines regular Sudoku rules with math. Numbers in outlined 'cages' must add up to the given sum, and no number can repeat within a cage.",
+    description: "Killer Sudoku combines regular Sudoku rules with maths. Numbers in outlined 'cages' must add up to the given sum, and no number can repeat within a cage.",
     example: "A 3-cell cage with sum 15 might contain the numbers 1, 5, and 9."
   },
   {
