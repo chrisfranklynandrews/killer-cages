@@ -1,4 +1,4 @@
-const CACHE_NAME = 'killer-cages-v1.0.0';
+const CACHE_NAME = 'killer-cages-v1.1.0';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -9,6 +9,9 @@ const urlsToCache = [
 
 // Install event - cache resources
 self.addEventListener('install', (event) => {
+  // Force the waiting service worker to become the active service worker
+  self.skipWaiting();
+  
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => {
@@ -23,6 +26,9 @@ self.addEventListener('install', (event) => {
 
 // Activate event - clean up old caches
 self.addEventListener('activate', (event) => {
+  // Take control of all pages immediately
+  self.clients.claim();
+  
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(

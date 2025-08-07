@@ -147,7 +147,7 @@
             <p>This app stores your preferences locally on your device. No data is sent to external servers.</p>
             
             <div class="app-info">
-              <p><strong>Version:</strong> 1.0.0</p>
+              <p><strong>Version:</strong> 1.1.0</p>
               <p><strong>Developer:</strong> Chris Franklyn</p>
               <p><strong>Website:</strong> <a href="https://chrisfranklyn.app" target="_blank">chrisfranklyn.app</a></p>
             </div>
